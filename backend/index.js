@@ -65,4 +65,9 @@ app.put("/completed", async (req, res)=>{
 
 })
 
+
+app.get("/", (req, res)=>{
+    res.json({msg: "Application is up"});
+})
+
 app.listen(3000);
