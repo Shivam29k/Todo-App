@@ -7,7 +7,7 @@ function App() {
 
   // never modify the state, always directly send a new state
   const addTodo = (newTodo) => {
-    setTodos((prevTodos) => [...prevTodos, newTodo]);
+    setTodos((prevTodos) => [newTodo, ...prevTodos]);
   };
 
   const removeTodo = (deletedTodo)=>{
