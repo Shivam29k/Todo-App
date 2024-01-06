@@ -1,21 +1,14 @@
 import { useState } from "react";
 
-export function Todos({ todos, removeTodo }) {
-  return (
-    <div>
-      {todos.map((todo) => (
-        <TodoItem key={todo._id} todo={todo} removeTodo={removeTodo} />
-      ))}
-    </div>
-  );
-}
 
-function TodoItem({ todo, removeTodo }) {
+// any hooks can't be used in loops or conditional statements 
+
+export function Todos({ todo, removeTodo }) {
   const [completed, updateStatus] = useState(todo.completed);
 
   const handleMarkAsDone = () => {
     if (!completed) {
-      fetch(`${import.meta.env.VITE_LOCAL_URL}/completed`, {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/completed`, {
         method: "PUT",
         headers: {
           'Content-type': 'application/json'
@@ -29,7 +22,7 @@ function TodoItem({ todo, removeTodo }) {
   };
 
   const handleDelete = () => {
-    fetch(`${import.meta.env.VITE_LOCAL_URL}/delete`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/delete`, {
       method: "DELETE",
       headers: {
         'Content-type': 'application/json'
@@ -44,13 +37,28 @@ function TodoItem({ todo, removeTodo }) {
   };
 
   return (
-    <div>
+    <div className="todo-item">
       <h2>{todo.title}</h2>
       <h3>{todo.description}</h3>
-      <button onClick={handleMarkAsDone}>
-        {completed ? "Completed" : "Mark as Done"}
-      </button>
-      {completed ? <button onClick={handleDelete}>delete</button> : null}
+      {completed? <button style={{
+            padding: 10,
+            marginBottom: 10,
+            width: '100%',
+            boxSizing: 'border-box',
+            backgroundColor: 'lightgreen'
+        }}>Completed</button> : <button onClick={handleMarkAsDone} style={{
+          padding: 10,
+          width: '100%',
+          // boxSizing: 'border-box',
+          backgroundColor: 'lightgreen'
+      }}>Mark as done</button>}
+      {completed ? <button onClick={handleDelete} style={{
+            padding: 10,
+            width: '100%',
+            boxSizing: 'border-box',
+            backgroundColor: 'red',
+            color: 'white'
+        }}>delete</button> : null}
     </div>
   );
 }

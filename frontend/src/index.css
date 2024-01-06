@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    width: 300px;
+}
+h1{
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+    padding: 10px;
+    text-align: center;
+}
+
+.todo-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    /* margin: 10px; */
+    border-radius: 5px;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif; /* This will give a cartoonish font */
+    background-color: #ffffcc; /* This is a light yellow color */
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}

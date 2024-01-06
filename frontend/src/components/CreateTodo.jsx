@@ -9,14 +9,18 @@ export function CreateTodo({ addTodo }) {
     return <div>
         <input style={{
             padding: 10,
-            margin: 10
+            marginBottom: 10,
+            width: '100%',
+            boxSizing: 'border-box'
         }} type="text" placeholder="title" onChange={(e) =>{
             const value = e.target.value;
             setTitle(value)
         }}></input> <br />
         <input style={{
             padding: 10,
-            margin: 10
+            marginBottom: 10,
+            width: '100%',
+            boxSizing: 'border-box'
         }} type="text" placeholder="description" onChange={(e) =>{
             const value = e.target.value;
             setDescription(value)
@@ -24,7 +28,10 @@ export function CreateTodo({ addTodo }) {
 
         <button style={{
             padding: 10,
-            margin: 10
+            marginBottom: 40,
+            width: '100%',
+            boxSizing: 'border-box',
+            backgroundColor: 'lightgreen'
         }}  onClick={()=>{
             fetch(`${import.meta.env.VITE_BACKEND_URL}/todo`, {
                 method: "POST",

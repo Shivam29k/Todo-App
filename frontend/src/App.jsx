@@ -20,7 +20,7 @@ function App() {
   }
 
   useEffect(()=>{
-    fetch(`${import.meta.env.VITE_LOCAL_URL}/todo`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/todo`)
       .then(async function (res) {
         const data = await res.json();
         // console.log(data.todos);
@@ -31,8 +31,13 @@ function App() {
 
   return (
     <div>
+      <h1>Todo-App</h1>
       <CreateTodo addTodo = {addTodo}></CreateTodo>
-      <Todos todos = {todos}  removeTodo = {removeTodo}></Todos>
+      <div>
+      {todos.map((todo) => (
+        <Todos key={todo._id} todo={todo} removeTodo={removeTodo} />
+      ))}
+    </div>
     </div>
   )
 }
