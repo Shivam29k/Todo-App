@@ -59,12 +59,17 @@ app.put("/completed", async (req, res)=>{
     const update = {
         completed: true
     }
-    await todo.updateOne(filter, update);
-    res.json({
-        msg: "Todo marked as completed"
-    })
+    const status = await todo.updateOne(filter, update);
+    res.json({msg: status.modifiedCount>0 ? "Todo marked as completed" : "Already completed"})
 
 })
+
+app.delete('/delete', async (req, res)=>{
+
+    const status = await todo.deleteOne({_id: req.body.id})
+    res.json({msg: status.deletedCount>0? "requested todo deleted" : "no todo was deleted"})
+})
+
 
 
 app.get("/", (req, res)=>{

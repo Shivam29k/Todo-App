@@ -26,7 +26,7 @@ export function CreateTodo({ addTodo }) {
             padding: 10,
             margin: 10
         }}  onClick={()=>{
-            fetch("http://localhost:3000/todo", {
+            fetch(`${import.meta.env.VITE_BACKEND_URL}/todo`, {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json'
@@ -38,12 +38,12 @@ export function CreateTodo({ addTodo }) {
             })
                 .then(async (res)=> {
                     const json =  await res.json();
-                    alert("Todo added")
+                    alert("Todo added");
                     addTodo({
                         title: title,
                         description: description,
                         completed: false
-                    })
+                    });
                 })
         }}>Add a todo</button>
     </div>

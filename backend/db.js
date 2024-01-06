@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { boolean } = require("zod");
 require('dotenv').config();
 const URL = process.env.DB_URL;
 
