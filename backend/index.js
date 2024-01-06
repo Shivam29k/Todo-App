@@ -2,6 +2,7 @@ const express = require("express");
 const { createTodo, updateTodo } = require("./types");
 const { todo } = require("./db");
 const cors = require("cors");
+const port = process.env.PORT || 3000;
 
 const app = express()
 app.use(express.json());
@@ -70,4 +71,6 @@ app.get("/", (req, res)=>{
     res.json({msg: "Application is up"});
 })
 
-app.listen(3000);
+app.listen(port, ()=>{
+    console.log(`Server is listening to port ${port}`);
+});
