@@ -38,8 +38,10 @@ export function Todos({ todo, removeTodo }) {
 
   return (
     <div className="todo-item">
+      <div className={completed? 'completed' : 'notCompleted'}>
       <h2>{todo.title}</h2>
       <h3>{todo.description}</h3>
+      </div>
       {completed? <button style={{
             padding: 10,
             marginBottom: 10,
