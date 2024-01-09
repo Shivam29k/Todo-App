@@ -17,7 +17,9 @@ export function Todos({ todo, removeTodo }) {
           id: todo._id,
           completed: true,
         }),
-      }).then(() => updateStatus(true));
+      }).then(() => {
+        updateStatus(true);
+      });
     }
   };
 
@@ -30,10 +32,11 @@ export function Todos({ todo, removeTodo }) {
       body: JSON.stringify({
         id: todo._id,
       }),
-    }).then(() => {
+    })
+    // .then(() => {
       removeTodo(todo);
       alert("Todo Deleted.");
-    });
+    // });
   };
 
   return (

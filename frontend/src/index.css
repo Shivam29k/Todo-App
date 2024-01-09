@@ -20,7 +20,7 @@ h1{
     border: 1px solid #ccc;
     padding: 10px;
     /* margin: 10px; */
-    border-radius: 5px;
+    border-radius: 10px;
     font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif; /* This will give a cartoonish font */
     background-color: #ffffcc; /* This is a light yellow color */
     box-sizing: border-box;
@@ -29,5 +29,8 @@ h1{
 
 .completed{
     text-decoration: line-through;
-  
-  }
+}
+
+button {
+    border-radius: 10px; /* Adjust this value as needed */
+}
